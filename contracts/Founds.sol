@@ -28,7 +28,7 @@ contract Founds {
         goal = etherValue(target);
     }
 
-    modifier goalReached() {
+    modifier closedCrowdfunding() {
         require(closed == false, "Goal reached, the found is closed");
         _;
     }
@@ -40,7 +40,7 @@ contract Founds {
 
     
     /// function used to donate an amount of money
-    function donate() public payable positiveValue goalReached {
+    function donate() public payable positiveValue closedCrowdfunding {
         // Increment the saldo
         saldo += msg.value;
 
